@@ -15,13 +15,9 @@ class SomeSpec extends Specification {
     def cleanup() {
     }
 
-    def setupData() {
-        def person = new Person(name: "John Doe").save(failOnError: true, flush: true)
-    }
-
     void "test something"() {
         setup:
-        setupData()
+        new Person(name: "John Doe").save(failOnError: true, flush: true)
 
         when:
         def retrievedPerson
